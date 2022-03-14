@@ -9,8 +9,15 @@
 %
 % Use Page Header or not
 %
-\def\hmwkPageHeader{1}          % use page header
-% \def\hmwkPageHeader{0}        % not use page header
+\def\hmwkPageHeader{1}      % use page header
+% \def\hmwkPageHeader{0}    % not use page header
+
+
+%
+% Use Cover Page or not
+%
+\def\hmwkCoverPage{1}       % use cover page
+% \def\hmwkCoverPage{0}     % not use cover page
 
 
 %
@@ -150,7 +157,6 @@
 
 % Alias for the Solution section header
 \newcommand{\solution}[1][-1]{
-    
     \ifnum#1>0
         \vspace{0.2in}
         \if\hmwkLanguage E
@@ -168,38 +174,67 @@
         \fi
         \vspace{0.1in}
     \fi
-    
 }
+\if\hmwkLanguage E
+    \renewcommand{\proofname}{Proof}
+    \renewcommand{\figurename}{Figure}
+    \renewcommand{\tablename}{Table}
+\fi
 
 
 %
 % Title Page
 %
 
-\title{
-    \vspace{3in}
-    \if\hmwkLanguage E
-        \huge{\textbf{\hmwkClass}}\\
-        \vspace{0.4in}
-        \huge{\textbf{\hmwkTitle}}\\
-        \vspace{0.4in}
-        \normalsize{Due on \hmwkDueDate}\\
-    \else
-        \Huge{\textbf{\hmwkClassCN}}\\
-        \vspace{0.3in}
-        \Huge{\textbf{\hmwkTitleCN}}\\
-        \vspace{0.4in}
-        \normalsize{截止日期：\hmwkDueDateCN}\\
-    \fi
-    \vspace{2.4in}
-}
+\if\hmwkCoverPage 1
+    \title{
+        \vspace{3in}
+        \if\hmwkLanguage E
+            \huge{\textbf{\hmwkClass}}\\
+            \vspace{0.4in}
+            \huge{\textbf{\hmwkTitle}}\\
+            \vspace{0.4in}
+            \normalsize{Due on \hmwkDueDate}\\
+        \else
+            \Huge{\textbf{\hmwkClassCN}}\\
+            \vspace{0.3in}
+            \Huge{\textbf{\hmwkTitleCN}}\\
+            \vspace{0.4in}
+            \normalsize{截止日期：\hmwkDueDateCN}\\
+        \fi
+        \vspace{2.4in}
+    }
 
-\if\hmwkLanguage E
-    \author{\hmwkAuthorName}
+    \if\hmwkLanguage E
+        \author{\hmwkAuthorName}
+    \else
+        \author{\hmwkAuthorNameCN}
+    \fi
+    \date{}
 \else
-    \author{\hmwkAuthorNameCN}
+    \title{
+        \if\hmwkLanguage E
+            \huge{\textbf{\hmwkClass}}\\
+            \vspace{0.05in}
+            \huge{\textbf{\hmwkTitle}}\\
+            \vspace{0.2in}
+            \normalsize{Due on \hmwkDueDate}\\
+        \else
+            \Huge{\textbf{\hmwkClassCN}}\\
+            \vspace{0.05in}
+            \Huge{\textbf{\hmwkTitleCN}}\\
+            \vspace{0.2in}
+            \normalsize{截止日期：\hmwkDueDateCN}\\
+        \fi
+    }
+
+    \if\hmwkLanguage E
+        \author{\hmwkAuthorName}
+    \else
+        \author{\hmwkAuthorNameCN}
+    \fi
+    \date{}
 \fi
-\date{}
 
 
 %
@@ -234,7 +269,7 @@
 \definecolor{codeBlue}{RGB}{10,70,196} 
 \definecolor{codeGrey}{rgb}{0.5,0.5,0.5} 
 \definecolor{backgroundGrey}{RGB}{248,248,248} 
-\lstset{ %  
+\lstset{ 
   backgroundcolor=\color{backgroundGrey},       % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}  
   basicstyle=\footnotesize,                     % the size of the fonts that are used for the code  
   breakatwhitespace=false,                      % sets if automatic breaks should only happen at whitespace  
