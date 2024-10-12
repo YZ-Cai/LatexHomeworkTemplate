@@ -7,6 +7,8 @@ A LaTeX template for homework, which is developed based on [GitHub - jdavis/late
 
 支持中文输入，可切换中文模板。
 
+![preview](/ReadMeImages/preview.png)
+
 <br/>
 
 ## 1 Features
